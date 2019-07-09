@@ -1,5 +1,5 @@
 applications:
-- name: hooni
+- name: Ggiri
   command: npm start
   path: .
   memory: 256M

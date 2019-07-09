@@ -5,10 +5,21 @@ let postMessage = (req, res) => {
 
   return res.json({
     "message" : {
-      "text" : "test"
+      "text" : getOutputText(data)
       }
   })
 };
+
+let getOutputText = data => {
+  let output = data.output;
+  if(output.text && Array.isArray(output.text)){
+    return output.text.join('\\n');
+  }
+  else if(output.text){
+    return output.text;
+  }
+  else return "";
+}
 
 module.exports = {
     'initialize': function(app, options) {
